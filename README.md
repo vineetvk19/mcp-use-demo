@@ -24,34 +24,38 @@ A demonstration of implementing an LLM Agent with tool access using MCP-Use and 
    git clone https://github.com/vineetvk19/mcp-use-demo.git
    cd mcp-use-demo
 
-Set up a virtual environment
-bashuv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+2. Set up a virtual environment
+   ```bash
+   bashuv venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-Install dependencies
-bashuv add mcp-use langchain-groq python-dotenv
+3. Install dependencies
+   ```bash
+   bashuv add mcp-use langchain-groq python-dotenv
 
-Create environment files:
+## Create environment files:
 
-Create a .env file with your Groq API key
-Create a mcp.json file with your Brave Search API configuration
+- Create a .env file with your Groq API key
+- Create a mcp.json file with your Brave Search API configuration
+  ```bash
+  {
+  "mcpServers": {
+    "brave-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "<BRAVE-API-KEY>"
+      }
+    }
+  }
 
 
-
-Usage
+## Usage
 Run the application:
-bashuv run app.py
-Project Structure
-mcp-use-demo/
-├── app.py              # Main application file
-├── mcp.json            # MCP server configuration
-├── .env                # Environment variables (not in repo)
-├── .gitignore          # Git ignore file
-└── README.md           # This file
-License
-MIT License
-Acknowledgments
+   ```bash
+   bashuv run app.py
 
-Based on the tutorial by Arham Islam (May 2025)
-Uses the MCP-Use library
-Powered by Groq's LLMs and Brave Search
+
